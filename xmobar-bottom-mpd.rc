@@ -1,0 +1,22 @@
+Config { font = "xft:DejaVu Sans Mono:size=8" -- "-*-terminus-medium-r-normal-*-12-*-*-*-*-*-*-*"
+       , bgColor = "#181818"
+       , fgColor = "#DACB55"
+       , border  = TopB
+       , borderColor = "black"
+       , position = BottomSize C 100 16
+       , lowerOnStart = True
+       , persistent = False
+       , hideOnStart = False
+       , commands = [ Run TopProc ["-M", "5", "-a", "r", "-t", "<name1>: <cpu1>/<mem1> <name2>: <cpu2>/<mem2> <name3>: <cpu3>/<mem3> <name4>: <cpu4>/<mem4>", "-L", "10", "-H", "50", "-n","#89DB2C", "-l", "#26EAF9", "-h","#F9266B" ] 30
+                    , Run MultiCpu ["-t", "CPU: <autototal>", "-L","4","-H","50", "-n","#89DB2C", "-l", "#26EAF9", "-h","#F9266B"] 30
+                    , Run Memory ["-t","Mem: <usedratio>%", "-n","#89DB2C", "-l", "#26EAF9", "-h","#F9266B"] 30
+                    , Run Swap ["-L", "1", "-H", "10", "-n","#89DB2C", "-l", "#26EAF9", "-h","#F9266B"] 30
+                    , Run DynNetwork ["-d", "2", "-t", "<dev>[▼:<rx>kb/s ▲:<tx>kb/s]", "-L","100","-H","5000", "-n","#89DB2C", "-l", "#26EAF9", "-h","#F9266B"] 30
+                    , Run MPD ["-t", "<composer> <title> (<album>) <track>/<plenth> <statei> ", "--", "-P", ">>", "-Z", "|", "><"] 30
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template =   "%top%}%multicpu%:|:%memory%:|:%swap%:|:%dynnetwork%{%mpd%"
+       }
+
+

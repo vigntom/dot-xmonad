@@ -1,0 +1,17 @@
+Config { font = "xft:terminus:pixelsize=10,Cousine:size=8"
+       , bgColor = "#181818"
+       , fgColor = "#DACB55"
+       , border  = BottomB
+       , borderColor = "black"
+       , position =  TopSize L 100 15
+       , lowerOnStart = True
+       , persistent = False
+       , hideOnStart = False
+       , commands = [ Run Weather "UWKS" ["-t","<station>: <tempC>˚C","-L","18","-H","27", "-n","#89DB2C", "-l", "#26EAF9", "-h","#F9266B"] 36000
+                    , Run Date "%a %b %_d %Y %H:%M:%S" "date" 10
+                    , Run StdinReader
+                    ]
+       , sepChar = "%"
+       , alignSep = "}{"
+       , template =  "%StdinReader%}  {%UWKS% | <fc=#ee9a00>%date%</fc>"
+       }
