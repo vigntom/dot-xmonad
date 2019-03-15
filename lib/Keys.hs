@@ -87,8 +87,6 @@ bspLayoutKeys =
 moeKeysP :: XConfig a -> [(String, X ())]
 moeKeysP conf =
     [ ("M-p",        shellPrompt moeXPConfig)
-    , ("M-C-p",      prompt ("urxvt" `mappend` " -e") xmobarLikeXPConfig)
-    , ("M-C-t",      spawn "urxvt -e zsh -ic 'ts moe'")
     , ("M-S-;",      xmonadPrompt dmenuLikeXPConfig { position = Bottom })
     , ("M-q",        restartXmonad )
     , ("M-h",        windows W.focusUp)
